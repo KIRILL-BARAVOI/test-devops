@@ -1,8 +1,10 @@
 const lynx = require('lynx');
+const opt = {};
+opt.prefix = 'test-devops-app';
 
 // instantiate a metrics client
 //  Note: the metric hostname is hardcoded here
-const metrics = new lynx('localhost', 8125);
+const metrics = new lynx('graphite', 8125, opt);
 
 // sleep for a given number of milliseconds
 function sleep(ms) {
