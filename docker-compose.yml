@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    image: app:latest
+    environment:
+      - "NODE_ENV=development"
+    links:
+      - "graphite:graphite"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 500M
+        reservations:
+          cpus: '0.5'
+          memory: 250M
+  graphite:
+    image: "graphiteapp/graphite-statsd:1.1.10-4"
+    ports:
+    - "80:80"
+    - "8125:8125/udp"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 500M
+        reservations:
+          cpus: '0.5'
+          memory: 250M
+    volumes:
+    - graphite-volume:/opt/graphite/
+volumes:
+    graphite-volume:
+        external: false
+
