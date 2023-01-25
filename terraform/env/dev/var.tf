@@ -30,7 +30,7 @@ variable "instance_tags" {}
 variable "instance_label" {
   type        = map(string)
   description = "instance label"
-  default     = { for_project = "test_devops", resource = "vm_instance", os = "debian", os_version = "9" }
+  default     = { for_project = "test_devops", resource = "vm_instance", os = "ubuntu", os_version = "22" }
 }
 
 variable "var.iap_to_ssh_groups" {
