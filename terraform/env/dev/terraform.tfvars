@@ -1,0 +1,14 @@
+project_id          = ""
+env                 = "development"
+region              = "us-central1"
+location            = "US"
+zone                = "us-central1-c"
+tfstate_bucket_name = "test-devops-tftstate-bucket"
+network_name        = "custom-network1"
+subnet_name         = "subnet-us-central-192"
+subnet_ip           = "192.168.1.0/24"
+instance_name       = "test-devops"
+instance_image      = "ubuntu-os-cloud/ubuntu-2204-lts"
+instance_type       = "e2-micro"
+instance_tags       = ["iap-tunnel"]
+iap_to_ssh_groups   = ["user@example.com"]
