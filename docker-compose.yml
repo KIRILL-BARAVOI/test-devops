@@ -3,6 +3,7 @@ services:
   app:
     build: .
     image: app:latest
+    restart: unless-stopped
     environment:
       - "NODE_ENV=development"
     links:
@@ -17,6 +18,7 @@ services:
           memory: 250M
   graphite:
     image: "graphiteapp/graphite-statsd:1.1.10-4"
+    restart: unless-stopped
     ports:
     - "80:80"
     - "8125:8125/udp"
