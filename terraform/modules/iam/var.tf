@@ -3,7 +3,7 @@ variable "project_id" {
   description = "project_id"
 }
 
-variable "var.iap_to_ssh_groups" {
+variable "iap_to_ssh_groups" {
   type    = list(string)
   default = []
 }

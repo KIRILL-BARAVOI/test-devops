@@ -25,4 +25,4 @@ variable "install_script_src_path" {
 
 variable "network_name" {}
 variable "subnet_name" {}
-variable "subnet_ip " {}
+variable "subnet_ip" {}

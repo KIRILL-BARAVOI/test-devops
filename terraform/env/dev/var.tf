@@ -21,7 +21,7 @@ variable "tfstate_bucket_name" {}
 variable "location" {}
 variable "network_name" {}
 variable "subnet_name" {}
-variable "subnet_ip " {}
+variable "subnet_ip" {}
 variable "instance_name" {}
 variable "instance_image" {}
 variable "instance_type" {}
@@ -33,7 +33,7 @@ variable "instance_label" {
   default     = { for_project = "test_devops", resource = "vm_instance", os = "ubuntu", os_version = "22" }
 }
 
-variable "var.iap_to_ssh_groups" {
+variable "iap_to_ssh_groups" {
   type    = set(string)
   default = []
 }

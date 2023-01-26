@@ -5,7 +5,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = var.tfstate_bucket_name
+    bucket = "test-devops-tftstate-bucket"
     prefix = "terraform/dev"
   }
 }
