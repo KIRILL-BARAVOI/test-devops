@@ -8,6 +8,11 @@ variable "region" {
   description = "region"
 }
 
+variable "zone" {
+  default     = ""
+  description = "zone"
+}
+
 variable "env" {
   description = "environment for service"
 }
@@ -25,4 +30,3 @@ variable "install_script_src_path" {
 
 variable "network_name" {}
 variable "subnet_name" {}
-variable "subnet_ip" {}

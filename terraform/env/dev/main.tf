@@ -3,17 +3,17 @@ provider "google" {
   region  = var.region
 }
 
-terraform {
-  backend "gcs" {
-    bucket = "test-devops-tftstate-bucket"
-    prefix = "terraform/dev"
-  }
-}
+# terraform {
+#   backend "gcs" {
+#     bucket = "test-devops-tftstate-bucket"
+#     prefix = "terraform/dev"
+#   }
+# }
 
 module "storage" {
   source   = "../../modules/storage"
-  project  = var.project_id
-  name     = var.tfstate_bucket_name
+  project_id  = var.project_id
+  tfstate_bucket_name     = var.tfstate_bucket_name
   location = var.location
 }
 
@@ -30,7 +30,6 @@ module "vpc" {
 module "gce" {
   source     = "../../modules/vm"
   project_id = var.project_id
-  name       = var.name
   env        = var.env
   region     = var.region
   zone       = var.zone
@@ -50,12 +49,13 @@ module "firewall" {
   source       = "../../modules/firewall"
   project_id   = var.project_id
   network_name = var.network_name
+  instance_tags  = var.instance_tags
 
   depends_on = [module.vpc]
 }
 
-module "iam" {
-  source            = "../../modules/iam"
-  project_id        = var.project_id
-  iap_to_ssh_groups = var.iap_to_ssh_groups
-}
+# module "iam" {
+#   source            = "../../modules/iam"
+#   project_id        = var.project_id
+#   iap_to_ssh_groups = var.iap_to_ssh_groups
+# }

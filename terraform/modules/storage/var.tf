@@ -7,6 +7,6 @@ variable "location" {
   default = ""
 }
 
-variable "tftstate_bucket_name" {
+variable "tfstate_bucket_name" {
   default = ""
 }
